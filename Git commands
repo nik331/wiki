@@ -1,0 +1,25 @@
+Pre-requisites
+
+1) Create an account on Git 
+2) Install a Git 
+
+Upload your code to git repository
+
+1) Create a new reposity on the Git and copy the url 
+2) Go the the project which you want to upload and open the commant prompt from the root of the code
+3) git int
+4) git add .
+5) git commit -m "Initial commit"
+5) git remote add origin copiedUrlOfRepository
+6) git remote -v (to verify the repository)
+7) git push origin master 
+
+Note : if step 7 fails because there is already a file in repository the first pull using below command
+git pull --rebase copiedUrlOfRepository
+
+Update files to git repository
+
+1) Make the changes in the code
+2) git add .
+3) git commit -m "Changes in readme"
+4) git push origin master
