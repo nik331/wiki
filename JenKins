@@ -1,0 +1,24 @@
+Configuring Jenkin job with SonarQube, xunit and dotCover coverage
+
+1) Create a job using free style format
+2) Use a asp.net core repository or local code (here refering https://github.com/nik331/ConferenceTrackManagement.git )
+3) Install the below plugins
+		*	SonarQube Scanner 
+		*	HTML Publisher 
+		*	MSTest
+4)	Under Build tab of job, add build step
+		*	SonarScanner for MSBuild - Begin Analysis  (Set the Project Key)
+		*	Build a Visual Studio project or solution using MSBuild
+		*	SonarScanner for MSBuild - End Analysis 
+		*	Execute Windows batch command
+			dotnet test ./ThoughtWorks.CTM.Test/ThoughtWorks.CTM.Test.csproj --no-build --no-restore --logger "trx;LogFileName=TestsResult.trx" --results-directory ..
+
+			"C:\Users\NR101958\Downloads\JetBrains.dotCover.CommandLineTools.2019.2.2\dotCover.exe" cover /TargetExecutable="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" /TargetArguments=".\ThoughtWorks.CTM.Test\bin\Debug\netcoreapp2.1\ThoughtWorks.CTM.Test.dll" /Output="CodeCoverage\CoverageReport.html" /ReportType="HTML"
+5)	Under Post-build Actions, add post-build action
+		*	Publish HTML reports
+				HTML directory to archive : CodeCoverage
+				Index page[s] : CoverageReport.html
+				Report title : Code Coverage Report
+		*	Publish MSTest test result report
+				Test report TRX file : **/*.trx
+				Fail build if no files are found : tick	
