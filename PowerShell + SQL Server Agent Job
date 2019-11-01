@@ -1,0 +1,29 @@
+#Powershell to check the folder first and then create if not exists
+
+$path = 'C\Folder'
+If(!(test-path $path))
+{
+      New-Item -ItemType Directory -Force -Path $path
+}
+
+
+$filePath = Invoke-Sqlcmd -ServerInstance "" -Database "" -Query "Select filePath from table"
+
+Use $filePath[0] - As $filePath will return System.DataRow
+
+Select @@ServerName - to know the server name
+
+To transfer value from one SQL Server agent job to another, we can use extendedproperty
+
+#To set :
+IF EXISTS (select * from tempdb.sys.extended_properties where class=0 and name='parmVariableName')
+   exec tempdb.sys.sp_dropextendedproperty @name='parmVariableName';
+
+EXEC tempdb.sys.sp_addextendedproperty   
+@name = N'parmVariableName',   
+@value = @VariableValue; 
+
+#To get :
+DECLARE @parmVariableName  VARCHAR(128)
+SELECT @parmVariableName = cast([value] AS VARCHAR(128)) 
+FROM tempdb.sys.fn_listextendedproperty('parmVariableName', null, null, null, null, null, null);
