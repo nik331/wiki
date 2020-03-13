@@ -22,3 +22,21 @@ Configuring Jenkin job with SonarQube, xunit and dotCover coverage
 		*	Publish MSTest test result report
 				Test report TRX file : **/*.trx
 				Fail build if no files are found : tick	
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+https://docs.sonarqube.org/display/SONARQUBE52/Installing+and+Configuring+SonarQube+Scanner+for+Jenkins
+
+https://updates.jenkins.io/download/plugins/sonar/ 
+token thoughtworks - 4130d3224c2309324ba8da172330e076ecd3855b
+
+https://support.cloudbees.com/hc/en-us/articles/219152268-Use-POST-Commit-Hook-with-Perforce-Triggers
+
+https://www.swtestacademy.com/jenkins-dotnet-integration/
+https://automationrhapsody.com/code-coverage-net-core-unit-tests-opencover/
+
+https://stackoverflow.com/questions/53959931/generation-of-the-sonar-properties-file-failed-unable-to-complete-sonarqube-ana
+
+https://www.jetbrains.com/help/dotcover/Running_Coverage_Analysis_from_the_Command_LIne.html
+
+dotnet test ThoughtWorks.CTM.Test.csproj --no-build --no-restore --logger:trx --results-directory ""
