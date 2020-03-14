@@ -1,0 +1,8 @@
+You need to follow below steps for solution :
+
+Open the Jenkin home page.
+Go to Manage Jenkins.
+Now go to Script Console.
+And in that console paste below statement and click on Run. System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+After that it will load css and js.
+Note : After following the above steps if still it is not loading css and js then clear the browser cache and cookie and refresh the page.
