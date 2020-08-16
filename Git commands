@@ -23,3 +23,6 @@ Update files to git repository
 2) git add .
 3) git commit -m "Changes in readme"
 4) git push origin master
+
+To get code from repo
+git clone URL (for ref : https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
